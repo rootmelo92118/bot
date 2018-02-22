@@ -6,7 +6,7 @@ import time
 
 client = LINE()
 client.log("Auth Token : " + str(client.authToken))
-client = LINE('nmjh10455099@gmail.com', 'melo92118')
+#client = LINE('email', 'password')
 
 oepoll = OEPoll(client)
 
