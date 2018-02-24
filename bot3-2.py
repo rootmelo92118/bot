@@ -81,10 +81,12 @@ def NOTIFIED_KICKOUT_FROM_GROUP(op):
                 hb = open("hb.txt", "w")
                 hb.write(op.param2)
                 hb.close()
+                client.kickoutFromGroup(op.param1, [op.param2])
             elif op.param2 in halfBlackListedMid:
                 b = open("b.txt", "w")
                 b.write(op.param2)
                 b.close()
+                client.kickoutFromGroup(op.param1, [op.param2])
             JoinedGroups.remove(op.param1)
         else:
             if op.param3 in whiteListedMid:
