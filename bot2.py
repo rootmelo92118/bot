@@ -150,25 +150,13 @@ def RECEIVE_MESSAGE(op):
                                                "/jgurl gid: " + msg.to + " gid " + "url: http://line.me/R/ti/g/" + str1 + " url")
                         if msg.text == "/help":
                             client.sendMessage(msg._from,
-                                        "Private Chat Command:\n\n/help\n/contact <MID>\n/mid\n/google\n/wiki\n/github\n/youtube\n/yahoo\n/amazon\n/jgurl <gid: GID gid> <url: gurl url>\n/send chat <mid: MID mid> <text: TEXT text>\n/send group <gid: GID gid> <text: TEXT text>\n/send chat contact <mid: MID mid> <cmid: CONTACT MID cmid>\n/send group contact <gid: GID gid> <cmid: CONTACT MID cmid>\n/kick <gid: GID gid> <mid: MID mid>\n\nGroup Command:\n\n/gid\n/ginfo\n/kick <MID>\n/gurl on\n/gurl off\n/clear invite\n/bye")
+                                        "Private Chat Command:\n\n/help\n/contact <MID>\n/mid\n/google\n/wiki\n/github\n/youtube\n/yahoo\n/amazon\n/jgurl <gid: GID gid> <url: gurl url>\n/send chat <mid: MID mid> <text: TEXT text>\n/send group <gid: GID gid> <text: TEXT text>\n/send chat contact <mid: MID mid> <cmid: CONTACT MID cmid>\n/send group contact <gid: GID gid> <cmid: CONTACT MID cmid>\n/kick <gid: GID gid> <mid: MID mid>\n\nGroup Command:\n\n/gid\n/ginfo\n/kick <MID>\n/gurl on\n/gurl off\n/bye")
                         if msg.text == "/mid":
                             client.sendMessage(msg._from, "Name : " + client.getContact(msg._from).displayName + "\nMID : " + msg._from + "\nPermission Level : 5")
                         if msg.text == "/speed":
                             time0 = timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
                             str1 = str(time0)
                             client.sendMessage(msg._from, str1)
-                        if msg.text == "/google":
-                            client.sendMessage(msg._from, "https://www.google.com")
-                        if msg.text == "/wiki":
-                            client.sendMessage(msg._from, "https://www.wikipedia.com")
-                        if msg.text == "/github":
-                            client.sendMessage(msg._from, "https://github.com")
-                        if msg.text == "/youtube":
-                            client.sendMessage(msg._from, "https://www.youtube.com")
-                        if msg.text == "/yahoo":
-                            client.sendMessage(msg._from, "https://www.yahoo.com")
-                        if msg.text == "/amazon":
-                            client.sendMessage(msg._from, "https://www.amazon.com")
                         if msg.text.startswith("/send chat"):
                             str1 = find_between_r(msg.text, "mid: ", " mid")
                             str2 = find_between_r(msg.text, "text: ", " text")
@@ -213,16 +201,16 @@ def RECEIVE_MESSAGE(op):
                             client.sendMessage(msg.to, msg.to)
                         if msg.text == "/ginfo":
                             group = client.getGroup(msg.to)
-                            md = "[Group Name]\n" + group.name + "\n\n[gid]\n" + group.id + "\n\n[Group Picture]\nhttp://dl.profile.line-cdn.net/" + group.pictureStatus
+                            md = "[群組名稱]\n" + group.name + "\n\n[gid]\n" + group.id + "\n\n[群組圖片]\nhttp://dl.profile.line-cdn.net/" + group.pictureStatus
                             if group.preventedJoinByTicket is False:
-                                md += "\n\nInvitationURL: Permitted\n"
+                                md += "\n\n行動網址: 開啟\n"
                             else:
-                                md += "\n\nInvitationURL: Refusing\n"
+                                md += "\n\n行動網址: 關閉\n"
                             if group.invitee is None:
-                                md += "\nMembers: " + str(len(group.members)) + "浜篭n\nInviting: 0People"
+                                md += "\n成員數: " + str(len(group.members)) + "人\n\n邀請中: 0人"
                             else:
-                                md += "\nMembers: " + str(len(group.members)) + "People\nInvited: " + str(
-                                    len(group.invitee)) + "People"
+                                md += "\n成員數: " + str(len(group.members)) + "人\n邀請中: " + str(
+                                    len(group.invitee)) + "人"
                                 client.sendMessage(msg.to, md)
                         if msg.text == "/speed":
                             time0 = timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
@@ -232,11 +220,7 @@ def RECEIVE_MESSAGE(op):
                             str1 = find_between_r(msg.text, "/contact ", "")
                             client.sendContact(msg.to, str1)
                         if msg.text == "/mid":
-                            client.sendMessage(msg.to, "Name : " + client.getContact(msg._from).displayName + "\nMID : " + msg._from + "\nPermission Level : 5")
-                        if msg.text == "/clear invite":
-                            group = client.getGroup(msg.to)
-                            for contact in group.invitee:
-                                client.cancelGroupInvitation(contact.mid)
+                            client.sendMessage(msg.to, "名字 : " + client.getContact(msg._from).displayName + "\nMID : " + msg._from + "\n權限等級 : 5")
                         if msg.text == "/bye":
                             client.leaveGroup(msg.to)
                             JoinedGroups.remove(msg.to)
@@ -257,20 +241,6 @@ def RECEIVE_MESSAGE(op):
                                 client.updateGroup(group)
                             except Exception as e:
                                 print(e)
-                        if msg.text == "/time":
-                            client.sendMessage(msg.to, strftime("鐝惧湪鏄? %H 鏅? %M 鍒? %S 绉?"))
-                        if msg.text == "/google":
-                            client.sendMessage(msg.to, "https://www.google.com")
-                        if msg.text == "/wiki":
-                            client.sendMessage(msg.to, "https://www.wikipedia.com")
-                        if msg.text == "/github":
-                            client.sendMessage(msg.to, "https://github.com")
-                        if msg.text == "/youtube":
-                            client.sendMessage(msg.to, "https://www.youtube.com")
-                        if msg.text == "/yahoo":
-                            client.sendMessage(msg.to, "https://www.yahoo.com")
-                        if msg.text == "/amazon":
-                            client.sendMessage(msg.to, "https://www.amazon.com")
                         if msg.text.startswith("/kick"):
                             str1 = find_between_r(msg.text, "/kick ", "")
                             if str1 not in whiteListedMid:
