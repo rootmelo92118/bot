@@ -146,9 +146,10 @@ def RECEIVE_MESSAGE(op):
                             except Exception as e:
                                 print(e)
                 elif msg.toType == 2:
-                    if msg.text == "/bye":
-                        client.leaveGroup(msg.to)
-                        JoinedGroups.remove(msg.to)
+                    if msg._from in whiteListedMid:
+                        if msg.text == "/bye":
+                            client.leaveGroup(msg.to)
+                            JoinedGroups.remove(msg.to)
                 else:
                     pass
             except:
