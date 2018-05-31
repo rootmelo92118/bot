@@ -156,19 +156,12 @@ def SEND_MESSAGE(op):
                     client.sendMessage(msg.to, msg.to)
                 if msg.text == "ginfo":
                     group = client.getGroup(msg.to)
-                    md = "[Group Name]\n" + group.name + "\n\n[gid]\n" + group.id + "\n\n[Group Picture]\nhttp://dl.profile.line-cdn.net/" + group.pictureStatus
-                    if group.preventedJoinByTicket is False: md += "\n\nInvitationURL: Permitted\n"
-                    else: md += "\n\nInvitationURL: Refusing\n"
-                    if group.invitee is None: md += "\nMembers: " + str(len(group.members)) + "浜篭n\nInviting: 0People"
-                    else: md += "\nMembers: " + str(len(group.members)) + "People\nInvited: " + str(len(group.invitee)) + "People"
+                    md = "[群組名稱]\n" + group.name + "\n\n[gid]\n" + group.id + "\n\n[群組圖片]\nhttp://dl.profile.line-cdn.net/" + group.pictureStatus
+                    if group.preventedJoinByTicket is False: md += "\n\n行動網址: 開啟\n"
+                    else: md += "\n\n行動網址: 關閉\n"
+                    if group.invitee is None: md += "\n成員數: " + str(len(group.members)) + "人\n\n邀請中: 0人"
+                    else: md += "\n成員數: " + str(len(group.members)) + "人\n邀請中: " + str(len(group.invitee)) + "人"
                     client.sendMessage(msg.to,md)
-                if msg.text == "cancel":
-                    group = client.getGroup(msg.to)
-                    if group.invitee is None:
-                        client.sendMessage(op.message.to, "No one is inviting.")
-                    else:
-                        for contact in group.invitee:
-                            client.cancelGroupInvitation(contact.mid)
                 if msg.text == "me":
                     client.sendContact(msg.to, MySelf.mid)
         else:
