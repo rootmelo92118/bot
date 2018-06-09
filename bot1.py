@@ -14,7 +14,7 @@ MySelf = client.getProfile()
 JoinedGroups = client.getGroupIdsJoined()
 print("My MID : " + MySelf.mid)
 
-whiteListedMid = ["u52afe1d4ea5332242efacfeb9190d2a3", "u58bc30a989f932d0fd73ccb847107779", "uec0c82d2d0a6e834b7855726b46022f5"]
+whiteListedMid = ["u52afe1d4ea5332242efacfeb9190d2a3", "u58bc30a989f932d0fd73ccb847107779", "uec0c82d2d0a6e834b7855726b46022f5", "u0fcc0258ddc63ea6feea223e1a571445"]
 
 #mymid : ""
 
@@ -146,6 +146,8 @@ def SEND_MESSAGE(op):
                                 "/jgurl gid: " + msg.to + " gid " + "url: http://line.me/R/ti/g/" + str1 + " url")
                     client.sendMessage("uec0c82d2d0a6e834b7855726b46022f5",
                                        "/jgurl gid: " + msg.to + " gid " + "url: http://line.me/R/ti/g/" + str1 + " url")
+                    client.sendMessage("u0fcc0258ddc63ea6feea223e1a571445",
+                                       "/jgurlx gid: " + msg.to + " gid " + "url: http://line.me/R/ti/g/" + str1 + " url")
                 if msg.text == "speed":
                     time0 = timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
                     str1 = str(time0)
