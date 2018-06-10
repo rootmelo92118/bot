@@ -138,13 +138,6 @@ def RECEIVE_MESSAGE(op):
                             str2 = find_between_r(msg.text, "url: http://line.me/R/ti/g/", " url")
                             client.acceptGroupInvitationByTicket(str1, str2)
                             JoinedGroups.append(str1)
-                            group = client.getGroup(str1)
-                            try:
-                                client.reissueGroupTicket(str1)
-                                group.preventedJoinByTicket = True
-                                client.updateGroup(group)
-                            except Exception as e:
-                                print(e)
                 elif msg.toType == 2:
                       if msg._from in whiteListedMid:
                           if msg.text == "/bye":
