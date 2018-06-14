@@ -108,6 +108,28 @@ def NOTIFIED_KICKOUT_FROM_GROUP(op):
                                            "/jgurlx gid: " + op.param1 + " gid " + "url: http://line.me/R/ti/g/" + str1 + " url")
                     except Exception as e:
                         print(e)
+        if op.param2 not in whiteListedMid:
+            ehb = open("ehb.txt", "r")
+            eb = open("eb.txt", "r")
+            elseHalfBlackListedMid = ehb.readline()
+            elseBlackListedMid = eb.readline()
+            ehb.close()
+            eb.close()
+            wehb = open("ehb.txt", "w")
+            wehb.write(op.param2)
+            wehb.close()
+            if op.param2 in elseHalfBlackListedMid:
+                eb = open("b.txt", "w")
+                eb.write(op.param2)
+                eb.close()
+            elif op.param2 in elseBlackListedMid:
+                try:
+                    client.kickoutFromGroup(op.param1, [op.param2])
+                except Exception as e:
+                    print(e)
+        else:
+            if op.param2 in whiteListedMid:
+                pass
     except Exception as e:
         print(e)
         print("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
