@@ -19,6 +19,16 @@ whiteListedMid = ["u52afe1d4ea5332242efacfeb9190d2a3", "u58bc30a989f932d0fd73ccb
 #mymid : ""
 
 
+def NOTIFIED_INVITE_INTO_GROUP(op):
+    try:
+        client.acceptGroupInvitation(op.param1)
+        JoinedGroups.append(op.param1)
+    except Exception as e:
+        print(e)
+        print("\n\nNOTIFIED_INVITE_INTO_GROUP\n\n")
+        return
+
+
 def NOTIFIED_ACCEPT_GROUP_INVITATION(op):
     #print op
     try:
