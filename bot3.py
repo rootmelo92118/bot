@@ -119,7 +119,7 @@ def NOTIFIED_KICKOUT_FROM_GROUP(op):
             wehb.write(op.param2)
             wehb.close()
             if op.param2 in elseHalfBlackListedMid:
-                eb = open("b.txt", "w")
+                eb = open("eb.txt", "w")
                 eb.write(op.param2)
                 eb.close()
             elif op.param2 in elseBlackListedMid:
