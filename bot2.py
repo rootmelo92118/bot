@@ -4,7 +4,7 @@ from time import strftime
 import time
 
 
-client = LINE('10455099nmjh@gmail.com', 'melo92118')
+client = LINE()
 client.log("Auth Token : " + str(client.authToken))
 #client = LINE('email', 'password')
 
