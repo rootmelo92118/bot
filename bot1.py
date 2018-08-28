@@ -6,7 +6,7 @@ import timeit
 
 
 
-client = LINE('rootmelo92118@gmail.com', 'melo92118')
+client = LINE()
 client.log("Auth Token : " + str(client.authToken))
 #client = LINE('email', 'password')
 
