@@ -4,7 +4,7 @@ import time
 import timeit
 
 
-client = LINE('nmjh10455099@gmail.com', 'melo92118')
+client = LINE()
 client.log("Auth Token : " + str(client.authToken))
 #client = LINE('email', 'password')
 
