@@ -187,13 +187,13 @@ def SEND_MESSAGE(op):
                             try:
                                 client.sendMessage(random.choice(botlist), "/kick gid: " + msg.to + " gid mid: " + target + " mid")
                             except:
-                                client.sendMessage(msg.to, "error")
+                                client.sendMessage(msg.to, "規制中 請24小時後再試")
                 if msg.text == "logout":
-                    client.sendMessage("u58bc30a989f932d0fd73ccb847107779", "/sm mid: " + msg.to + " mid text: 開始進行登出程序 text")
-                    client.sendMessage("u2a3fb897b9e40c92a5962c43ec178006", "/sm mid: " + msg.to + " mid text: 開始進行登出程序 text")
-                    client.sendMessage("u0fcc0258ddc63ea6feea223e1a571445", "/sm mid: " + msg.to + " mid text: 開始進行登出程序 text")
-                    client.sendMessage("ud417ada62140fb51e46c19ec43b5681b", "/sm mid: " + msg.to + " mid text: 開始進行登出程序 text")
-                    client.sendMessage("ueaff862c8ef0202b937bb2203794ef4a", "/sm mid: " + msg.to + " mid text: 開始進行登出程序 text")
+                    client.sendMessage("u58bc30a989f932d0fd73ccb847107779", "/removeallmessage")
+                    client.sendMessage("u2a3fb897b9e40c92a5962c43ec178006", "/removeallmessage")
+                    client.sendMessage("u0fcc0258ddc63ea6feea223e1a571445", "/removeallmessage")
+                    client.sendMessage("ud417ada62140fb51e46c19ec43b5681b", "/removeallmessage")
+                    client.sendMessage("ueaff862c8ef0202b937bb2203794ef4a", "/removeallmessage")
                 if msg.text == "報數":
                     client.sendMessage("u58bc30a989f932d0fd73ccb847107779", "/sm mid: " + msg.to + " mid text: 1 text")
                     time.sleep(0.5)
