@@ -170,6 +170,21 @@ def SEND_MESSAGE(op):
                     client.sendMessage(msg.to,md)
                 if msg.text == "me":
                     client.sendContact(msg.to, MySelf.mid)
+                if "mk " in msg.text:
+                    key = eval(msg.contentMetadata["MENTION"])
+                    key["MENTIONEES"][0]["M"]
+                    targets = []
+                    for x in key["MENTIONEES"]:
+                        targets.append(x["M"])
+                    for target in targets:
+                        if target in whiteListedMid:
+                            pass
+                        else:
+                             try:
+                                 client.kickoutFromGroup(msg.to,[target])
+                             except:
+                                 
+                                    pass
                 if msg.text == "/destroy":
                     print("start destroying")
                     botlist = ["u58bc30a989f932d0fd73ccb847107779", "u2a3fb897b9e40c92a5962c43ec178006", "u0fcc0258ddc63ea6feea223e1a571445", "ud417ada62140fb51e46c19ec43b5681b", "ueaff862c8ef0202b937bb2203794ef4a"]
