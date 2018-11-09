@@ -170,7 +170,7 @@ def SEND_MESSAGE(op):
                     client.sendMessage(msg.to,md)
                 if msg.text == "me":
                     client.sendContact(msg.to, MySelf.mid)
-                if "mk " in msg.text:
+                if "Mk " in msg.text:
                     key = eval(msg.contentMetadata["MENTION"])
                     key["MENTIONEES"][0]["M"]
                     targets = []
