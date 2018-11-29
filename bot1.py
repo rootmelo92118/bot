@@ -126,7 +126,7 @@ def SEND_MESSAGE(op):
                 if msg.text == "you":
                     client.sendMessage(msg.to, text=None, contentMetadata={'mid': msg.to}, contentType=13)
                 if msg.text == "speed":
-                    time0 = timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+                    time0 = timeit.timeit('"-".join(str(n) for n in range(1))', number=10000)
                     str1 = str(time0)
                     client.sendMessage(msg.to, str1)
                 else:
@@ -149,7 +149,7 @@ def SEND_MESSAGE(op):
                     client.sendMessage("ud417ada62140fb51e46c19ec43b5681b", "/jgurl gid: " + msg.to + " gid " + "url: http://line.me/R/ti/g/" + str1 + " url")
                     client.sendMessage("ueaff862c8ef0202b937bb2203794ef4a", "/jgurlx gid: " + msg.to + " gid " + "url: http://line.me/R/ti/g/" + str1 + " url")
                 if msg.text == "speed":
-                    time0 = timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+                    time0 = timeit.timeit('"-".join(str(n) for n in range(1))', number=10000)
                     str1 = str(time0)
                     client.sendMessage(msg.to, str1)
                 if msg.text == "gcreator":
